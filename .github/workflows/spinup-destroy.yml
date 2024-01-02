@@ -64,6 +64,5 @@ jobs:
       - name: Destroy Azure environment
         if: success()
         run: |
-          # az group delete --name ${{env.AZURE_RESOURCE_GROUP}} --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}} --yes
           az webapp delete --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AZURE_WEBAPP_NAME }} --yes
           az appservice plan delete --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AZURE_WEBAPP_NAME }} --yes
